@@ -7,7 +7,7 @@
     <ul>
     
     @foreach($tasks as $task)
-        <li>{{$task->id}}: {{$task->body}} -- made in {{$task->created_at}}</li>
+        <li><a href="/heroku/public/tasks/{{$task->id}}">: {{$task->body}} -- made in {{$task->created_at}}</a></li>
         @endforeach
     </ul>
     
