@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index' );
+
 //php artisan make:model Task -m
 Route::post('/tasks', 'TasksController@store');
 Route::get('/tasks','TasksController@index');

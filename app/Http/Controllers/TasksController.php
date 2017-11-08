@@ -11,9 +11,13 @@ class TasksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    
+
     public function index()
-    {
-        //
+    {        
+        $test = 'VARIABLE OK lets goo';
+        return view("tasks/index", compact('test'));
     }
 
     /**

@@ -1,10 +1,10 @@
 <html>
-    <<head>
+    <head>
         
-    </head>>
+    </head>
 <body>
-    <<h1>this is my content</h1>
-@yield('content')
+    <h1>THIS IS INDEX>BLADE>PHP</h1>
+    {{$test}}
 </body>
 
-</html>>
+</html>
