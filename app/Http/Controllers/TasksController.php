@@ -16,8 +16,8 @@ class TasksController extends Controller
 
     public function index()
     {        
-        $test = 'VARIABLE OK lets goo';
-        return view("tasks/index", compact('test'));
+        $tasks = Task::all();// cannot find App/task goes to controller folder
+        return view("tasks/index", compact('tasks'));
     }
 
     /**

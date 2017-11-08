@@ -14,7 +14,11 @@
 
 //php artisan make:model Task -m
 Route::post('/tasks', 'TasksController@store');
-Route::get('/tasks','TasksController@index');
+Route::get('/tasks',function(){
+    $tasks = App\Task::all();
+
+    return view("tasks/index", compact('tasks'));
+});
 Route::get('/tasks/create', 'TasksController@create');
 //php artisan make:controller TasksController -r  <-makes resourcefull controller
 Route::patch('/tasks/{task}/edit', 'TasksController@edit');
