@@ -14,21 +14,19 @@
 
     </head>
 <body>
-
-    @include('layouts.nav');
+   
+    @include('layouts.nav')
 
     <div class="container">
 
         <div class="starter-template">            
             <p>@yield('content')</p>
-        </div>
+        </div>    
+        @include('tasks/create')
 
     </div><!-- /.container -->
 
-
-    <h1>this text is wrrten in the layout file</h1>
-
-    @include ('layouts.footer');
+    @include ('layouts.footer')
 
 </body>
 

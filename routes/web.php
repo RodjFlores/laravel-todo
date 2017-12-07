@@ -16,6 +16,7 @@
 Route::post('/tasks', 'TasksController@store');
 Route::get('/tasks', 'TasksController@index');
 Route::get('/tasks/{task}', 'TasksController@show');
+Route::delete('/task/{task}/delete', 'TasksController@delete');
 /*Route::get('/tasks',function(){
     $tasks = App\Task::all();
 
@@ -23,8 +24,13 @@ Route::get('/tasks/{task}', 'TasksController@show');
 });*/
 Route::get('/tasks/create', 'TasksController@create');
 //php artisan make:controller TasksController -r  <-makes resourcefull controller
+Route::get('/home','TasksController@index');
+
 Route::patch('/tasks/{task}/edit', 'TasksController@edit');
-Route::delete('/tasks/{task}/delete', 'TasksController@destroy');
-Route::get('/tasks/{task}', 'TasksController@show');
+Route::patch('/task/{task}/edit', 'TasksController@update');
+
+Auth::routes();
+
+
 /*
 */

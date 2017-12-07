@@ -7,8 +7,10 @@
     </head>
     
 <body>
-    <h1>{{$task->body}} this is the body</h1>wefwef
-    wefwefwefwefwf
+    <h1>{{$task->body}}</h1>   
+    <p>
+    Status: {{$task -> completed}}
+    </p> 
 </body>
 
 

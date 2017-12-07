@@ -20,7 +20,7 @@ class TasksController extends Controller
         return view("tasks/index", compact('tasks'));
     }
 
-    public function show(Task $task)
+    public function show()
     {
         return view('tasks/show', compact('task'));
     }
@@ -32,7 +32,8 @@ class TasksController extends Controller
      */
     public function create()
     {
-        //
+        $tasks = Task::all();
+        return view('task.create', compact('tasks'));
     }
 
     /**
@@ -41,9 +42,13 @@ class TasksController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $task = new Task;
+        $task->body = request('body');
+        $task->completed = 0;
+        $task->save();
+        return redirect('/tasks');
     }
 
     /**
@@ -60,9 +65,11 @@ class TasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Task $task)
     {
-        //
+        //        
+        $task = Task::find($task->id);
+        return view('task.edit', compact(['task','id']));
     }
 
     /**
@@ -72,9 +79,13 @@ class TasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Task $task)
     {
         //
+        $task->body = request('body');
+        $task->completed = request('completed');
+        $task->save();
+        return redirect('/tasks');
     }
 
     /**
@@ -86,5 +97,11 @@ class TasksController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function delete(Task $task)
+    {
+        $task->delete();
+        // redirect
+        return redirect('/tasks');
     }
 }
