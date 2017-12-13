@@ -20,8 +20,9 @@ class TasksController extends Controller
         return view("tasks/index", compact('tasks'));
     }
 
-    public function show()
+    public function show(Task $task)
     {
+
         return view('tasks/show', compact('task'));
     }
 
@@ -46,6 +47,7 @@ class TasksController extends Controller
     {
         $task = new Task;
         $task->body = request('body');
+        $task->user_id = auth()->id();
         $task->completed = 0;
         $task->save();
         return redirect('/tasks');
@@ -69,7 +71,15 @@ class TasksController extends Controller
     {
         //        
         $task = Task::find($task->id);
-        return view('task.edit', compact(['task','id']));
+        if($task -> completed == 0) {
+            $task -> completed = 1;
+        }else{
+            $task -> completed = 0;
+        }
+        $task->save();
+        
+
+        return redirect('/tasks');
     }
 
     /**

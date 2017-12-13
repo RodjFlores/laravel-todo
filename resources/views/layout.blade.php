@@ -19,14 +19,14 @@
 
     <div class="container">
 
-        <div class="starter-template">            
+                   
             <p>@yield('content')</p>
-        </div>    
-        @include('tasks/create')
+          
+        
 
     </div><!-- /.container -->
 
-    @include ('layouts.footer')
+    
 
 </body>
 

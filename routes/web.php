@@ -25,6 +25,8 @@ Route::delete('/task/{task}/delete', 'TasksController@delete');
 Route::get('/tasks/create', 'TasksController@create');
 //php artisan make:controller TasksController -r  <-makes resourcefull controller
 Route::get('/home','TasksController@index');
+Route::get('/','TasksController@index');
+
 
 Route::patch('/tasks/{task}/edit', 'TasksController@edit');
 Route::patch('/task/{task}/edit', 'TasksController@update');

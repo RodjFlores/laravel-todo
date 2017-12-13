@@ -7,6 +7,9 @@
     </head>
     
 <body>
+<br>
+<br>
+<br>
     <h1>{{$task->body}}</h1>   
     <p>
     Status: {{$task -> completed}}
